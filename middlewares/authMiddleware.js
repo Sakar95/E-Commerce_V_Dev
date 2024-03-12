@@ -17,7 +17,7 @@ export const isAdmin = async(req,res,next)=>{
         if(user.role !==1){
             return res.send({
                 success : false,
-                msg : "UnAuthorised Access"
+                msg : "Unauthorised Access"
             })
         }
         else{
