@@ -5,12 +5,8 @@ import auth from "./routes/auth.js"
 import categoryRoute from "./routes/categoryRoute.js"
 import productRoute from "./routes/productRoute.js"
 import cors from 'cors'
-import path from 'path'
-import {fileURLToPath} from 'url';
 
 dotenv.config();
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename)
 
 const app = express();
 
@@ -20,7 +16,6 @@ connectDB();
 // middlewares
 app.use(cors())
 app.use(express.json())
-// app.use(express.static(path.join(__dirname,"./client/build")))
 
 const port = process.env.PORT || 8080
 
@@ -30,9 +25,7 @@ app.use('/api/v1/auth',auth)
 app.use('/api/v1/category',categoryRoute)
 app.use('/api/v1/product',productRoute)
 
-// app.use("*",function(req,res){
-//     res.sendFile(path.join(__dirname,"./client/build/index.html"))
-// })
+
 
 app.listen(port,()=>{
     console.log(`Listening on PORT ${port}`)
