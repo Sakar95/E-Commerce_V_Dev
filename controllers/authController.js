@@ -57,8 +57,6 @@ export const loginController = async (req,res)=>{
     try {
         const {email,password} = req.body
 
-        // if(!email) return res.json({message : "Invalid Email"})
-        // if(!password) return res.json({message : "Invalid Password"})
         if(!email || !password){
             return res.status(500).json({
                 success : false,
